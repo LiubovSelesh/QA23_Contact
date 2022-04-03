@@ -39,7 +39,6 @@ public class LoginTests extends TestBase{
 
     }
 //    public boolean isContactRegistrationAgain() {
-//
 //        return isElementPresent(By.xpath("//div[contains(.,'Registration failed with code 409')]"));
 //    }
 
