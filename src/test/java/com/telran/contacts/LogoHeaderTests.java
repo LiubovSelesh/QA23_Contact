@@ -13,6 +13,13 @@ public class LogoHeaderTests extends TestBase {
         isElementPresent(By.xpath("//h1[contains(.,'PHONEBOOK')]"));
         System.out.println("Logo Phonebook: " + isElementPresent(By.xpath("//h1[contains(.,'PHONEBOOK')]")));
 
+    }
+
+    @Test
+    public void checkLogoHome() {
+        System.out.println("HOME");
+        isElementPresent(By.xpath("//a[contains(.,'HOME')]"));
+        System.out.println("Logo HOME: " + isElementPresent(By.xpath("//a[contains(.,'HOME')]")));
 
     }
 }
