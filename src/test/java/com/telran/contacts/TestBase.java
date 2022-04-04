@@ -31,8 +31,8 @@ public class TestBase {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
-    @AfterSuite(enabled = false)
-//    @AfterMethod
+//    @AfterSuite(enabled = false)
+    @AfterMethod
     public void tearDown(){
         driver.quit();
     }

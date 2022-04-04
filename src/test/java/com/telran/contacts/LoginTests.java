@@ -38,9 +38,10 @@ public class LoginTests extends TestBase{
 //        Alert.assert
 
     }
-//    public boolean isContactRegistrationAgain() {
-//        return isElementPresent(By.xpath("//div[contains(.,'Registration failed with code 409')]"));
-//    }
+    public boolean isContactRegistrationAgain() {
+
+        return isElementPresent(By.xpath("//div[contains(.,'Registration failed with code 409')]"));
+    }
 
     @Test(priority = 2)
     public void loginRegisterUserNegativeTest() {
