@@ -25,5 +25,4 @@ public class RemoveContactTests extends TestBase{
         System.out.println(sizeAfter);
         Assert.assertEquals(sizeAfter, sizeBefore - 1);
     }
-
 }

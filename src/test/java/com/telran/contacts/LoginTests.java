@@ -12,7 +12,7 @@ public class LoginTests extends TestBase{
     public void ensurePreconditions() {
         clickOnLoginTab();
         if (!isRegistrationLoginFormPresent()) { // по версии Ирины,
-            clickOnSignOut();
+            clickOnSignOutButton();
         }
     }
 
@@ -20,22 +20,19 @@ public class LoginTests extends TestBase{
     public void loginRegisterUserPositiveTest(){
         fillRegistrationLoginForm("qjer152@gmail.com", "Qje36547894321$");
         clickOnLoginButton();
-        Assert.assertTrue(isContactNabPresent());
+        Assert.assertTrue(isContactTabPresent());
     }
 
     @Test(priority = 2)
     public void loginRegisterUserNegativeTest() {
-        clickOnLoginTab();
+//        clickOnLoginTab();
         fillRegistrationLoginForm("qjer152@gmail.com", "Qje3654789432");
         clickOnLoginButton();
         Assert.assertTrue(isAlertPresent());
 
 // HW :   assert "Login Failed with code 400" displayed
         Assert.assertTrue(isContactRegistrationAgain());
-
-
     }
-
 }
 
 

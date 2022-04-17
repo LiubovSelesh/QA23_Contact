@@ -1,10 +1,8 @@
 package com.telran.contacts;
 
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -28,13 +26,12 @@ public class TestBase {
     }
 
 //    @AfterSuite(enabled = false)
-    @AfterMethod
+    @AfterMethod (enabled = false)
     public void tearDown(){
         driver.quit();
     }
 
     public boolean isElementPresent(By locator){          //это универсалный метод
-
         return driver.findElements(locator).size() > 0;
     }
 
@@ -90,6 +87,18 @@ public class TestBase {
         }
         return false;
     }
+    public void jumpToFooter(By locator) {
+        driver.findElement(locator).sendKeys(Keys.CONTROL, Keys.END);
+    }
+
+    public void clickWithActions(By save) {
+
+        Actions actions = new Actions(driver);
+        WebElement element = driver.findElement(save);
+
+        actions.moveToElement(element).build().perform();
+        element.click();
+    }
 
     public int sizeOfContacts() {
         if (driver.findElements(By.cssSelector(".contact-item_card__2SOIM")).size() > 0){
@@ -137,7 +146,7 @@ public class TestBase {
         return isElementPresent(By.cssSelector("div:nth-child(2) > div > div"));
     }
 
-    public void clickOnSignOut() {
+    public void clickOnSignOutButton() {
         click(By.xpath("//button[contains(.,'Sign Out')]"));
     }
 
@@ -157,7 +166,7 @@ public class TestBase {
         return isElementPresent2(By.cssSelector(".login_login__3EHKB"));
     }
 
-    public boolean isContactNabPresent() {
+    public boolean isContactTabPresent() {
         return isElementPresent(By.xpath("//a[contains(.,'CONTACTS')]"));
     }
 
@@ -165,8 +174,8 @@ public class TestBase {
         click(By.xpath("//button[contains(.,' Login')]"));
     }
 
-    public boolean isContactRegistrationAgain() { return isElementPresent(By.xpath("//div[.='Login Failed with code 400']"));
-
+    public boolean isContactRegistrationAgain() {
+        return isElementPresent(By.xpath("//div[.='Login Failed with code 400']"));
 
     }
 }

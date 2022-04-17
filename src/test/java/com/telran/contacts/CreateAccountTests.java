@@ -11,7 +11,7 @@ public class CreateAccountTests extends TestBase {
     public void ensurePreconditions(){
         if(!isLoginTabPresent()){
             //click log ot button
-            clickOnSignOut();
+            clickOnSignOutButton();
         }
     }
 
@@ -25,7 +25,5 @@ public class CreateAccountTests extends TestBase {
         clickOnRegistrationButton();
         //click on Registration button
         isSignOutButtonPresent();
-
     }
-
 }
