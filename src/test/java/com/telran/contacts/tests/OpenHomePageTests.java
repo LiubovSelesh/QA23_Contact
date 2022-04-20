@@ -1,4 +1,4 @@
-package com.telran.contacts;
+package com.telran.contacts.tests;
 
 
 import org.testng.annotations.Test;
@@ -11,7 +11,7 @@ public class OpenHomePageTests extends TestBase {
         //check to displayed Home Component form
         //driver.findElement(By.cssSelector("div:nth-child(2) > div > div"));
 
-        isHomeComponentPresent();
+        app.getHomePage().isHomeComponentPresent();
         // System.out.println("Home Component: " + isHomeComponentPresent());
         // System.out.println("Home Component: " + isElementPresent2(By.cssSelector("div:nth-child(2) > div > div")));
     }
