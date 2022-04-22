@@ -30,7 +30,7 @@ public class ContactHelper extends HelperBase{
     }
 
     public void addContact(Contact contact) {
-        int i = (int) ((System.currentTimeMillis() / 1000)%3600);
+//        int i = (int) ((System.currentTimeMillis() / 1000)%3600);
 
         click(By.cssSelector("a:nth-child(5)"));
         type(By.cssSelector("input:nth-child(1)"), contact.getName());
@@ -40,7 +40,7 @@ public class ContactHelper extends HelperBase{
         type(By.cssSelector("input:nth-child(5)"), contact.getAddress());
         type(By.cssSelector("input:nth-child(6)"), contact.getDescription());
 
-        click(By.cssSelector(".add_form__2rsm2 button"));
+        clickWithActions(By.cssSelector(".add_form__2rsm2 button"));
     }
 
     public void removeContact() {
@@ -52,5 +52,9 @@ public class ContactHelper extends HelperBase{
 
     public boolean isContactListEmpty() {
         return driver.findElements(By.cssSelector(".contact-item_card__2SOIM")).isEmpty();
+    }
+
+    public boolean isSaveBtnPresent() {
+        return isElementPresent(By.cssSelector(".add_form__2rsm2 button"));
     }
 }
